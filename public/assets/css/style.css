@@ -1,0 +1,23 @@
+
+
+
+body {
+
+    background-color: transparent; 
+    overflow: hidden;   
+}
+
+
+#main-div{
+    position: fixed; 
+    background: url("../img/burger-background.jpg") no-repeat center;
+    background-size: cover;    
+    height: 120vh;
+    width: 100%;
+    z-index: -1;
+}
+
+li,h2{
+    color:white
+
+}

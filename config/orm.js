@@ -1,29 +1,62 @@
 var connection = require('./connection.js');
 
+
 var orm = {
-    selectAll: function (tbl, col, val) {
-        var queryString = "SELECT * FROM ?? WHERE ?? = ?";
-        connection.query(queryString, [tbl, col, val], function (err, result) {
-            if (err) throw err;
-            console.log(result);
-
+    selectAll:  (tbl) => {
+        return new Promise((resolve,reject)=>{
+            var queryString = "SELECT * FROM ??";
+            var data;
+            connection.query(queryString, [tbl], function (err, result) {
+                if (err){
+                    console.error("ERROR: " + err.stack)
+                    reject(err);
+                   
+                } 
+                else{
+                    resolve(result);
+                }
+                
+        })
+       
         })
     },
 
-    insertOne: function (tbl, col1, col2, val1, val2) {
-        var queryString = "INSERT INTO ?? (?? , ??) VALUES (? ,?)";
-        connection.query(queryString, [tbl, col1, col2, val1, val2], function (err, result) {
-            if (err) throw err;
-            console.log("inserted row :", result.affectedRows);
+    insertOne:  (tbl, col1, col2, val1, val2) => {
+        return new Promise((resolve,reject)=>{
+            var queryString = "INSERT INTO ?? (?? , ??) VALUES (? ,?)";
+            connection.query(queryString, [tbl, col1, col2, val1, val2], function (err, result) {
+                if (err) {
+                    console.error("ERROR: " + err.stack);
+                    reject(err);
+
+                }
+                else
+                {
+                    resolve(result.affectedRows);
+
+                }
+            })
         })
+       
     },
 
-    updateOne: function (tbl, col1, val1, col2, val2) {
-        var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
-        connection.query(queryString, [tbl, col1, val1, col2, val2], function (err, result) {
-            if (err) throw err;
-            console.log("Updated row :", result.changedRows);
+    updateOne:  (tbl, col1, val1, col2, val2) =>{
+        return new Promise((resolve,reject)=>{
+            var queryString = "UPDATE ?? SET ?? = ? WHERE ?? = ?";
+            connection.query(queryString, [tbl, col1, val1, col2, val2], function (err, result) {
+                if (err) 
+                {
+                    reject(err);
+
+                }
+                else
+                {
+                    resolve(result.changedRows);
+                }
+                
+            })
         })
+        
     }
 
 }

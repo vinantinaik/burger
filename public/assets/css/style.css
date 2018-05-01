@@ -21,11 +21,25 @@ body {
 
 #landing-container {
     position: relative;
-    top: 30vh;
+    top: 35vh;
     width: 100%;
     height: 100%;
 }
 
+textarea{
+    width: 70%;
+}
+
+.devburger{
+    background: url("../img/qip_eating.png") ;
+    border: none;
+    height: 28px;
+    width: 32px;
+    background-repeat: no-repeat;
+
+    
+
+}
 
 li,h2,h1{
     color:white;

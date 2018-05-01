@@ -1,29 +1,27 @@
-<div id="main-div" >
+<div id="main-div">
   <h1>Eat-da-Burger</h1>
 
 </div>
 
 <div id="landing-container" class="container d-flex align-items-center">
   <div class="row">
-    <div class="col-md">
+    <div class="col-md-6">
       <ul>
         {{#each burgers}} {{#unless this.devoured}}
         <li>
           <div class="row">
-            <div class="col-sm">
+            <div class="col-md">
               <p>
                 {{this.id}}. {{this.burger_name}}
 
               </p>
             </div>
-            <div class="col-sm">
+            <div class="col-md">
               <p>
-                <button data-burgerid="{{this.id}}" class="devburger">Devour</button>
+                <button  data-burgerid="{{this.id}}" class="devburger" >  </button>
               </p>
             </div>
           </div>
-
-
         </li>
         {{/unless}} {{/each}}
       </ul>
@@ -32,13 +30,13 @@
       <h2>Which burger do you want to eat</h2>
       <form id="addburger" class="button-size">
         <p>
-        <textarea type="text" name="burger"></textarea>
+          <textarea type="text" name="burger"></textarea>
 
         </p>
         <p>
-        <button type="submit" id="btnSubmit" class="btn btn-warning hvr-fade">Eat burger!
-          <i class="fas fa-utensils"></i>
-        </button>
+          <button type="submit" id="btnSubmit" class="btn btn-warning hvr-fade">Eat burger!
+            <i class="fas fa-utensils"></i>
+          </button>
 
         </p>
       </form>

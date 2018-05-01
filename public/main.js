@@ -5,14 +5,23 @@ $(document).ready(function () {
         var newBurger = {
             burger_name: $("#addburger [name=burger]").val().trim()
         };
-        $.ajax("/burgers", {
-            type: "POST",
-            data: newBurger
-        })
-        .then(function () {
-            console.log("Added new burger");
-            location.reload();
-        })
+        if (newBurger.burger_name === "")
+        {
+            alert("Please enter burger name");
+
+        }
+        else
+        {
+            $.ajax("/burgers", {
+                type: "POST",
+                data: newBurger
+            })
+            .then(function () {
+                console.log("Added new burger");
+                location.reload();
+            })
+        }
+        
        
         
 

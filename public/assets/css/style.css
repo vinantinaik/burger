@@ -9,15 +9,28 @@ body {
 
 
 #main-div{
+    
     position: fixed; 
     background: url("../img/burger-background.jpg") no-repeat center;
     background-size: cover;    
     height: 120vh;
     width: 100%;
     z-index: -1;
+    
 }
 
-li,h2{
-    color:white
+#landing-container {
+    position: relative;
+    top: 30vh;
+    width: 100%;
+    height: 100%;
+}
 
+
+li,h2,h1{
+    color:white;
+
+}
+#devoured li{
+    color:whitesmoke;
 }

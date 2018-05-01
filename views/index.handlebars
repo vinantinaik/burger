@@ -1,44 +1,61 @@
-<h1>Eat-da-Burger</h1>
-<div id="main-div">
+<div id="main-div" >
+  <h1>Eat-da-Burger</h1>
+
+</div>
+
+<div id="landing-container" class="container d-flex align-items-center">
   <div class="row">
-    <ul>
-      {{#each burgers}} {{#unless this.devoured}}
-      <li>
+    <div class="col-md">
+      <ul>
+        {{#each burgers}} {{#unless this.devoured}}
+        <li>
+          <div class="row">
+            <div class="col-sm">
+              <p>
+                {{this.id}}. {{this.burger_name}}
+
+              </p>
+            </div>
+            <div class="col-sm">
+              <p>
+                <button data-burgerid="{{this.id}}" class="devburger">Devour</button>
+              </p>
+            </div>
+          </div>
+
+
+        </li>
+        {{/unless}} {{/each}}
+      </ul>
+    </div>
+    <div class="col-md">
+      <h2>Which burger do you want to eat</h2>
+      <form id="addburger" class="button-size">
         <p>
-          {{this.id}}. {{this.burger_name}}
+        <textarea type="text" name="burger"></textarea>
 
-          <button data-burgerid="{{this.id}}" class="devburger">Devour</button>
         </p>
-      </li>
-      {{/unless}} {{/each}}
-    </ul>
-
-  </div>
- 
-
-  <div class="row">
-    <h2>Which burger do you want to eat</h2>
-    <form id="addburger" class="button-size">
-      <textarea type="text" name="burger"></textarea>
-      <button type="submit" id="btnSubmit" class="btn btn-warning hvr-fade">Eat burger!
+        <p>
+        <button type="submit" id="btnSubmit" class="btn btn-warning hvr-fade">Eat burger!
           <i class="fas fa-utensils"></i>
-      </button>
-    </form>
-  </div>
-
-   <div class="row">
-    <ul>
-      {{#each burgers}} {{#if this.devoured}}
-      <li>
-        <p>
-          {{this.id}}. {{this.burger_name}}
-
+        </button>
 
         </p>
-      </li>
-      {{/if}} {{/each}}
-    </ul>
+      </form>
+    </div>
+    <div class="col-md" id="devoured">
+      <ul>
+        {{#each burgers}} {{#if this.devoured}}
+        <li>
+          <p>
+            {{this.id}}. {{this.burger_name}}
+
+
+          </p>
+        </li>
+        {{/if}} {{/each}}
+      </ul>
+    </div>
 
   </div>
-
 </div>
